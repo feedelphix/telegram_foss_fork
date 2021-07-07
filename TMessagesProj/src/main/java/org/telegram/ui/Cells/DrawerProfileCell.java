@@ -182,6 +182,7 @@ public class DrawerProfileCell extends FrameLayout {
             }
             switchTheme(themeInfo, toDark);
         });
+        if(Theme.selectedAutoNightType != Theme.AUTO_NIGHT_TYPE_SYSTEM)
             addView(darkThemeView, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.BOTTOM, 0, 0, 6, 90));
 
         if (Theme.getEventType() == 0) {
