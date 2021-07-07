@@ -333,9 +333,9 @@ public class Emoji {
     }
 
     public static CharSequence replaceEmoji(CharSequence cs, Paint.FontMetricsInt fontMetrics, int size, boolean createNew, int[] emojiOnly) {
-        if (SharedConfig.useSystemEmoji || cs == null || cs.length() == 0) {
+        /*if (SharedConfig.useSystemEmoji || cs == null || cs.length() == 0) {
             return cs;
-        }
+        }*/
         Spannable s;
         if (!createNew && cs instanceof Spannable) {
             s = (Spannable) cs;
@@ -483,7 +483,7 @@ public class Emoji {
                     emojiCode.setLength(0);
                     doneEmoji = false;
                 }
-                if ((Build.VERSION.SDK_INT < 23 || Build.VERSION.SDK_INT >= 29) && emojiCount >= 50) {
+                if ((Build.VERSION.SDK_INT < 23 || Build.VERSION.SDK_INT >= 29) && emojiCount >= 50 || SharedConfig.useSystemEmoji) {
                     break;
                 }
             }
