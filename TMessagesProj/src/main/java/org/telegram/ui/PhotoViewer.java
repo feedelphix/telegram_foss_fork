@@ -13830,6 +13830,9 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
 
     @Override
     public boolean canDoubleTap(MotionEvent e) {
+        if(SharedConfig.disableEdgeTapping) {
+            return true;
+        }
         if (checkImageView.getVisibility() != View.VISIBLE && !drawPressedDrawable[0] && !drawPressedDrawable[1]) {
             float x = e.getX();
             int side = Math.min(135, containerView.getMeasuredWidth() / 8);
@@ -14066,7 +14069,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             return false;
         }
         float x = e.getX();
-        if (checkImageView.getVisibility() != View.VISIBLE) {
+        if (!SharedConfig.disableEdgeTapping && checkImageView.getVisibility() != View.VISIBLE) {
             int side = Math.min(135, containerView.getMeasuredWidth() / 8);
             if (x < side) {
                 if (leftImage.hasImageSet()) {

@@ -185,6 +185,8 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
     private final static int edit_theme = 3;
     private final static int reset_settings = 4;
 
+    private int disableEdgeTapping;
+
     private class GpsLocationListener implements LocationListener {
 
         @Override
@@ -486,6 +488,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
         raiseToSpeakRow = -1;
         sendByEnterRow = -1;
         saveToGalleryRow = -1;
+        disableEdgeTapping = -1;
         distanceRow = -1;
         settings2Row = -1;
         stickersRow = -1;
@@ -549,6 +552,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
             raiseToSpeakRow = rowCount++;
             sendByEnterRow = rowCount++;
             saveToGalleryRow = rowCount++;
+            disableEdgeTapping = rowCount++;
             distanceRow = rowCount++;
             settings2Row = rowCount++;
             stickersRow = rowCount++;
@@ -892,6 +896,11 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
                 SharedConfig.toggleSaveToGallery();
                 if (view instanceof TextCheckCell) {
                     ((TextCheckCell) view).setChecked(SharedConfig.saveToGallery);
+                }
+            } else if (position == disableEdgeTapping) {
+                SharedConfig.toggleDisableFlipPhotos();
+                if (view instanceof TextCheckCell) {
+                    ((TextCheckCell) view).setChecked(SharedConfig.disableEdgeTapping);
                 }
             } else if (position == distanceRow) {
                 if (getParentActivity() == null) {
@@ -1993,6 +2002,8 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
                         textCheckCell.setTextAndValueAndCheck(LocaleController.getString("DirectShare", R.string.DirectShare), LocaleController.getString("DirectShareInfo", R.string.DirectShareInfo), SharedConfig.directShare, false, true);
                     } else if (position == emojiRow) {
                         textCheckCell.setTextAndCheck(LocaleController.getString("LargeEmoji", R.string.LargeEmoji), SharedConfig.allowBigEmoji, true);
+                    } else if (position == disableEdgeTapping) {
+                        textCheckCell.setTextAndCheck(LocaleController.getString("disableEdgeTapping", R.string.disableEdgeTapping), SharedConfig.disableEdgeTapping, true);
                     }
                     break;
                 }
@@ -2080,7 +2091,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
                 return 6;
             } else if (position == scheduleLocationRow || position == enableAnimationsRow || position == sendByEnterRow ||
                     position == saveToGalleryRow || position == raiseToSpeakRow || position == customTabsRow ||
-                    position == directShareRow || position == emojiRow) {
+                    position == directShareRow || position == emojiRow || position == disableEdgeTapping) {
                 return 7;
             } else if (position == textSizeRow) {
                 return 8;
