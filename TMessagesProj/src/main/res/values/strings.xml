@@ -4484,4 +4484,5 @@
     <string name="RemindDayAt">\'Remind on\' MMM d \'at\' HH:mm</string>
     <string name="RemindDayYearAt">\'Remind on\' MMM d yyyy \'at\' HH:mm</string>
     <string name="BotsMenuTitle">Menu</string>
+    <string name="GoToBeginning">Go to Beginning</string>
 </resources>
