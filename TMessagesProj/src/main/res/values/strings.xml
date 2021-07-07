@@ -4486,4 +4486,5 @@
     <string name="BotsMenuTitle">Menu</string>
     <string name="DeleteFromCache">Delete from cache</string>
     <string name="disableEdgeTapping">Disable edge tapping on photos</string>
+    <string name="useSystemEmoji">Use system emoji</string>
 </resources>
