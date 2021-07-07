@@ -6855,17 +6855,6 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         });
         searchCalendarButton.setContentDescription(LocaleController.getString("JumpToDate", R.string.JumpToDate));
 
-        searchGoToBeginningButton = new ImageView(context);
-        searchGoToBeginningButton.setScaleType(ImageView.ScaleType.CENTER);
-        searchGoToBeginningButton.setImageResource(R.drawable.msg_schedule);
-        searchGoToBeginningButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_searchPanelIcons), PorterDuff.Mode.SRC_IN));
-        searchGoToBeginningButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
-        searchContainer.addView(searchGoToBeginningButton, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.TOP, 0, 0, 48 * 2, 0));
-        searchGoToBeginningButton.setOnClickListener(view -> {
-            scrollToMessageId(1, 0, false, 0, true, 0);
-        });
-        searchGoToBeginningButton.setContentDescription(LocaleController.getString("GoToBeginning", R.string.GoToBeginning));
-
         searchCountText = new SearchCounterView(context);
 //        searchCountText.setTextColor(Theme.getColor(Theme.key_chat_searchPanelText));
 //        searchCountText.setTextSize(15);
@@ -8046,7 +8035,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         return groupedMessages;
     }
 
-    private void jumpToDate(int date) {
+    public void jumpToDate(int date) {
         if (messages.isEmpty()) {
             return;
         }

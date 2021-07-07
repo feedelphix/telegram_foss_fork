@@ -4484,7 +4484,6 @@
     <string name="RemindDayAt">\'Remind on\' MMM d \'at\' HH:mm</string>
     <string name="RemindDayYearAt">\'Remind on\' MMM d yyyy \'at\' HH:mm</string>
     <string name="BotsMenuTitle">Menu</string>
-    <string name="GoToBeginning">Go to Beginning</string>
     <string name="DeleteFromCache">Delete from cache</string>
     <string name="disableEdgeTapping">Disable edge tapping on photos</string>
 </resources>

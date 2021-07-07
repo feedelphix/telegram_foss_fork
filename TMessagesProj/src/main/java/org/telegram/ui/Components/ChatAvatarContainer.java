@@ -117,6 +117,13 @@ public class ChatAvatarContainer extends FrameLayout implements NotificationCent
         subtitleTextView.setTag(Theme.key_actionBarDefaultSubtitle);
         subtitleTextView.setTextSize(14);
         subtitleTextView.setGravity(Gravity.LEFT);
+        titleTextView.setOnLongClickListener(v -> {
+            chatActivity.jumpToDate(2);
+            return true;
+        });
+        titleTextView.setOnClickListener(v -> {
+            openProfile(false);
+        });
         addView(subtitleTextView);
 
         if (parentFragment != null) {
